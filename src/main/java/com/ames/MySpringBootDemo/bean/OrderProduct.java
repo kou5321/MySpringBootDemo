@@ -1,5 +1,6 @@
 package com.ames.MySpringBootDemo.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class OrderProduct {
     @Column
     private int qty;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     private Order order;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
